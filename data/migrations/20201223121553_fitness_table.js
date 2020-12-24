@@ -22,12 +22,12 @@ exports.up = function(knex) {
             tbl.increments();
             tbl.string('name', 128).notNullable().unique();
             tbl.string('type', 128).notNullable();
-            tbl.string('start time', 128).notNullable();
+            tbl.string('start_time', 128).notNullable();
             tbl.string('duration', 128).notNullable();
-            tbl.string('intensity level', 128).notNullable();
+            tbl.string('intensity_level', 128).notNullable();
             tbl.string('location', 128).notNullable();
-            tbl.string('registered attendees', 128).notNullable();
-            tbl.string('max class size', 128).notNullable();
+            tbl.string('registered_attendees', 128).notNullable();
+            tbl.string('max_class_size', 128).notNullable();
         })
 
 };
