@@ -3,6 +3,7 @@ const db = require('./../../data/dbConfig');
 module.exports = {
     getAll,
     getById,
+    getByUser,
     create,
     update,
     remove
@@ -14,6 +15,10 @@ function getAll() {
 
 function getById(id) {
     return db('users').where('id', id).first();
+}
+
+function getByUser(user) {
+    return db('users').where(user).orderBy('id');
 }
 
 async function create(fitnessClass) {
