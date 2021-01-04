@@ -5,7 +5,7 @@ const router = express.Router();
 const Class = require('./classes-model');
 
 const checkReqBody = (req, res, next) => {
-    if(!req.body.name || !req.body.type || !req.body.start_time || !req.body.duration || !req.body.intensity_level || !req.body.location || !req.body.registered_attendees || !req.body.max_class_size) {
+    if(!req.body.name || !req.body.type || !req.body.start_time || !req.body.duration || !req.body.intensity_level || !req.body.location || !req.body.max_class_size) {
         res.status(400).json({ message: 'missing required fields' });
     } else {
         next();
@@ -37,6 +37,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', checkReqBody, (req, res) => {
+    console.log(req.body);
     Class.create(req.body)
         .then(fitnessClass => {
             res.status(201).json(fitnessClass);

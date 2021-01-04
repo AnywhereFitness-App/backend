@@ -26,8 +26,8 @@ exports.up = function(knex) {
             tbl.string('duration', 128).notNullable();
             tbl.string('intensity_level', 128).notNullable();
             tbl.string('location', 128).notNullable();
-            tbl.string('registered_attendees', 128).notNullable();
-            tbl.string('max_class_size', 128).notNullable();
+            tbl.integer('registered_attendees').defaultTo(0);
+            tbl.integer('max_class_size').notNullable();
         })
 
 };
