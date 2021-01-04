@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
+    "postserver": "npx knex migrate:up && npx knex seed:run --specific=02-roles.js",
     "start": "node index.js"
   },
   "repository": {
