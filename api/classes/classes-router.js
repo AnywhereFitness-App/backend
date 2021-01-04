@@ -37,7 +37,6 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', checkReqBody, (req, res) => {
-    console.log(req.body);
     Class.create(req.body)
         .then(fitnessClass => {
             res.status(201).json(fitnessClass);
