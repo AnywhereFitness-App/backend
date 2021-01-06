@@ -54,6 +54,7 @@ router.post('/login', Middleware.checkLoginPayload, Middleware.emailExists, (req
             if(user && bcrypt.compareSync(password, user.password)) {
                 const token = makeToken(user);
                 res.status(200).json({
+                    user: user,
                     message: `Welcome, ${user.email}`,
                     token
                 })
