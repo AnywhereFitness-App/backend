@@ -6,7 +6,8 @@ module.exports = {
     getByUser,
     create,
     update,
-    remove
+    remove,
+    createRole
 }
 
 function getAll() {
@@ -36,3 +37,9 @@ async function remove(id) {
     const deleted = await db('users').where('id', id).del();
     return deleted;
 }
+
+async function createRole(role) {
+    const newId = await db('roles').insert(role);
+    return db('roles').where('id', newId).first();
+}
+
